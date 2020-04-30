@@ -1,0 +1,32 @@
+import random
+
+# Basic Turn-based game
+turns = 0
+playerhp = 25
+monsterhp = 25
+while True:
+
+    if turns % 2 == 0:  # even
+        print("Player 1's turn")
+        input("Press ENTER to Attack")
+        damage = random.randrange(2, 5)
+        print(f"You do {damage} damage to the Monster")
+        monsterhp = monsterhp - damage
+        print(f"Player HP: {playerhp}")
+        print(f"Monster HP: {monsterhp}")
+    else:  # odd
+        print("Monster's turn")
+        input("Press ENTER for Monster to Attack")
+        damage = random.randrange(2, 5)
+        print(f"Monster does {damage} damage to you")
+        playerhp = playerhp - damage
+        print(f"Player HP: {playerhp}")
+        print(f"Monster HP: {monsterhp}")
+    if monsterhp <= 0:
+      print("The Monster is defeated, you win!")
+      break
+    elif playerhp <= 0:
+      print("The Monster defeated you, Game over!")
+      break
+    turns += 1
+   
